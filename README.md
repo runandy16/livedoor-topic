@@ -16,7 +16,6 @@ http://taku910.github.io/mecab/
 ``` 
 例：私は長田研究室の領域生です
 →　私　は　長田　研究　室　の　領域　生　です
-
 ``` 
 ### インストールの前提
 
@@ -34,11 +33,30 @@ https://github.com/ikegami-yukino/mecab/releases/tag/v0.996
 ### PythonにMeCabを取り込む
 ``` 
 pip install mecab-python-windows
-``` 
+```
+
+続いて、MeCabのインストール先/binにある「libmecab.dll」をコピー＆ペーストします。
+コピー元例：C:\Program Files\MeCab\bin
+コピー先例：C:\ProgramData\Anaconda3\Lib\site-packages
+
 ## Livedoorのデータを整形
 日本語文書分類タスクのための代表的なコーパスの1つ、Livedoorニュースコーパス。
 Livedoorニュースのニュース記事を収集して生成されており、9種類のニュース記事が計7367本収載されています。
 
+### livedoorニュースコーパス
+
+NHN Japan株式会社が運営する「livedoor ニュース」のうち、下記のクリエイティブ・コモンズライセンスが適用されるニュース記事を収集し、可能な限りHTMLタグを取り除いて作成したものです。
+- トピックニュースhttp://news.livedoor.com/category/vender/news/
+- Sports Watchhttp://news.livedoor.com/category/vender/208/
+- ITライフハックhttp://news.livedoor.com/category/vender/223/
+- 家電チャンネルhttp://news.livedoor.com/category/vender/kadench/
+- MOVIE ENTERhttp://news.livedoor.com/category/vender/movie_enter/
+- 独女通信http://news.livedoor.com/category/vender/90/
+- エスマックスhttp://news.livedoor.com/category/vender/smax/
+- livedoor HOMMEhttp://news.livedoor.com/category/vender/homme/
+- Peachyhttp://news.livedoor.com/category/vender/ldgirls/
+
+収集時期：2012年9月上旬 ダウンロード（通常テキスト）：ldcc-20140209.tar.gz ダウンロード（Apache Solr向き）
 コーパスは事前に入手しています。(``` dataset``` の中にありますが、一応入手方法は以下のような感じ。)
 
 ``` 
@@ -74,7 +92,17 @@ for filename in `basename -a ./text/topic-news/topic-news-*`; do echo -n "$filen
 2.``` gensim``` を用いてトピック分析します。
 以下のコマンドでパッケージをインストールしてください。
 
-``` 
-pip install pandas
+```
 pip install gensim
-``` 
+(なければ以下もインストール)
+pip install pandas
+pip install re
+pip install tqdm
+```
+
+トピック数は，Livedoorのカテゴリ数と同じ9個に設定してみよう！
+
+
+```
+python main.py
+```
