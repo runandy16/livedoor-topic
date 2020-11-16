@@ -46,15 +46,15 @@ Livedoorニュースのニュース記事を収集して生成されており、
 ### livedoorニュースコーパス
 
 NHN Japan株式会社が運営する「livedoor ニュース」のうち、下記のクリエイティブ・コモンズライセンスが適用されるニュース記事を収集し、可能な限りHTMLタグを取り除いて作成したものです。
-- トピックニュースhttp://news.livedoor.com/category/vender/news/
-- Sports Watchhttp://news.livedoor.com/category/vender/208/
-- ITライフハックhttp://news.livedoor.com/category/vender/223/
-- 家電チャンネルhttp://news.livedoor.com/category/vender/kadench/
-- MOVIE ENTERhttp://news.livedoor.com/category/vender/movie_enter/
-- 独女通信http://news.livedoor.com/category/vender/90/
-- エスマックスhttp://news.livedoor.com/category/vender/smax/
-- livedoor HOMMEhttp://news.livedoor.com/category/vender/homme/
-- Peachyhttp://news.livedoor.com/category/vender/ldgirls/
+- トピックニュース http://news.livedoor.com/category/vender/news/
+- Sports Watch http://news.livedoor.com/category/vender/208/
+- ITライフハック http://news.livedoor.com/category/vender/223/
+- 家電チャンネル http://news.livedoor.com/category/vender/kadench/
+- MOVIE ENTER http://news.livedoor.com/category/vender/movie_enter/
+- 独女通信 http://news.livedoor.com/category/vender/90/
+- エスマックス http://news.livedoor.com/category/vender/smax/
+- livedoor HOMME http://news.livedoor.com/category/vender/homme/
+- Peachy http://news.livedoor.com/category/vender/ldgirls/
 
 収集時期：2012年9月上旬 ダウンロード（通常テキスト）：ldcc-20140209.tar.gz ダウンロード（Apache Solr向き）
 コーパスは事前に入手しています。(``` dataset``` の中にありますが、一応入手方法は以下のような感じ。)
@@ -105,4 +105,16 @@ pip install tqdm
 
 ```
 python main.py
+```
+
+各トピックの出力結果はこんな感じ。カテゴリと対応できてるか確認してみよう！
+```
+topic0
+人,0.022903683
+自分,0.016474457
+会社,0.014194324
+情報,0.012465477
+年収,0.00995398
+企業,0.008524116
+...
 ```
