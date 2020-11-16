@@ -65,7 +65,7 @@ if __name__ == '__main__':
     with open('output_topics.csv', 'w', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         for i in range(9):
-            writer.writerow([f'topic{i}'])
+            writer.writerow([f'------------topic{i}------------'])
             print("\n")
             print("=" * 80)
             print("TOPIC {0}\n".format(i))
